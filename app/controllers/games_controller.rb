@@ -11,7 +11,6 @@ class GamesController < ApplicationController
   end
 
   def create
-    binding.pry
     @game = Game.create
     redirect_to :action => :index
   end
