@@ -6,6 +6,7 @@ class Game < ActiveRecord::Base
 
   serialize :board
 
+
   def initialize(player_1, player_2)
     @board = board
     @player_1 = player_1
@@ -19,6 +20,16 @@ class Game < ActiveRecord::Base
     super()
   end
 
+  def board
+  board = {:a => ["a1", "a2", "a3", "a4", "a5", "a6"],
+           :b => ["b1", "b2", "b3", "b4", "b5", "b6"],
+           :c => ["c1", "c2", "c3", "c4", "c5", "c6"],
+           :d => ["d1", "d2", "d3", "d4", "d5", "d6"],
+           :e => ["e1", "e2", "e3", "e4", "e5", "e6"],
+           :f => ["f1", "f2", "f3", "f4", "f5", "f6"],
+           :g => ["g1", "g2", "g3", "g4", "g5", "g6"]
+  }
+  end
   def self.waiting
     Game.where(:players_count => 1)
   end
@@ -45,7 +56,7 @@ class Game < ActiveRecord::Base
     @col = @next_player.prompt_user("Player #{@next_player.username}: Please choose a letter between A and G",
                          /^[#{A-Ga-g}]$/, 'You must choose an available space!')
     piece = @next_player == @player_1 ? @player_1piece : @player2_piece
-    place_piece(@col.to_sym, piece)
+    place_piece(@col.downcase.to_sym, piece)
   end
 
   def take_turn
@@ -54,6 +65,7 @@ class Game < ActiveRecord::Base
    pick_col
    @next_player = @player1 == @next_player ? @player2 : @player1
    @turns -= 1
+  end
 
   def can_move?(user)
     if self.turn_count.even?

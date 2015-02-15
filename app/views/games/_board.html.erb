@@ -11,7 +11,7 @@
         <th><%= button_to "F", game_path(params[:id]), params: { :column => 5 }, :method => :put, :class => "btn btn-default" %></th>
         <th><%= button_to "G", game_path(params[:id]), params: { :column => 6 }, :method => :put, :class => "btn btn-default" %></th>
       </tr>
-    <% end %>  
+    <% end %>
       <tr>
         <td class="<%= board[:A][0] %>">a[6]</td>
         <td class="<%= board[:B][1] %>">b[6]</td>
@@ -69,8 +69,6 @@
     </table>
   </div>
   <% else %>
-<% end %>  
+<% end %>
 <%= link_to 'New Game', new_game_path %> |
 <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-
-
