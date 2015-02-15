@@ -27,6 +27,7 @@ class Game < ActiveRecord::Base
     Game.where(:finished => false)
   end
 
+
   def place_piece (col, piece)
     col_height = 6
     while @board[col][col_height].length != 2 && col_height >0
@@ -53,5 +54,13 @@ class Game < ActiveRecord::Base
    pick_col
    @next_player = @player1 == @next_player ? @player2 : @player1
    @turns -= 1
+
+  def can_move?(user)
+    if self.turn_count.even?
+      user == self.users.first
+    else
+      user == self.users.second
+    end
+
   end
 end
