@@ -1,0 +1,76 @@
+<%= if @game %>
+  <div class="game_board">
+    <table class="game-table" border="1" width="30%" cellpadding="8">
+    <%= if @game.can_move?(current_user) %>
+      <tr>
+        <th><%= button_to "A", game_path(params[:id]), params: { :column => 0 }, :method => :put, :class => "btn btn-default" %></th>
+        <th><%= button_to "B", game_path(params[:id]), params: { :column => 1 }, :method => :put, :class => "btn btn-default" %></th>
+        <th><%= button_to "C", game_path(params[:id]), params: { :column => 2 }, :method => :put, :class => "btn btn-default" %></th>
+        <th><%= button_to "D", game_path(params[:id]), params: { :column => 3 }, :method => :put, :class => "btn btn-default" %></th>
+        <th><%= button_to "E", game_path(params[:id]), params: { :column => 4 }, :method => :put, :class => "btn btn-default" %></th>
+        <th><%= button_to "F", game_path(params[:id]), params: { :column => 5 }, :method => :put, :class => "btn btn-default" %></th>
+        <th><%= button_to "G", game_path(params[:id]), params: { :column => 6 }, :method => :put, :class => "btn btn-default" %></th>
+      </tr>
+    <% end %>  
+      <tr>
+        <td class="<%= board[:A][0] %>">a[6]</td>
+        <td class="<%= board[:B][1] %>">b[6]</td>
+        <td class="<%= board[:C][2] %>">c[6]</td>
+        <td class="<%= board[:D][3] %>">d[6]</td>
+        <td class="<%= board[:E][4] %>">e[6]</td>
+        <td class="<%= board[:F][5] %>">f[6]</td>
+        <td class="<%= board[:G][6] %>">g[6]</td>
+      </tr>
+      <tr>
+        <td class="<%= board[:A][0] %>">a[5]</td>
+        <td class="<%= board[:B][1] %>">b[5]</td>
+        <td class="<%= board[:C][2] %>">c[5]</td>
+        <td class="<%= board[:D][3] %>">d[5]</td>
+        <td class="<%= board[:E][4] %>">e[5]</td>
+        <td class="<%= board[:F][5] %>">f[5]</td>
+        <td class="<%= board[:G][6] %>">g[5]</td>
+      </tr>
+      <tr>
+        <td class="<%= board[:A][0] %>">a[4]</td>
+        <td class="<%= board[:B][1] %>">b[4]</td>
+        <td class="<%= board[:C][2] %>">c[4]</td>
+        <td class="<%= board[:D][3] %>">d[4]</td>
+        <td class="<%= board[:E][4] %>">e[4]</td>
+        <td class="<%= board[:F][5] %>">f[4]</td>
+        <td class="<%= board[:G][6] %>">g[4]</td>
+      </tr>
+      <tr>
+        <td class="<%= board[:A][0] %>">a[3]</td>
+        <td class="<%= board[:B][1] %>">b[3]</td>
+        <td class="<%= board[:C][2] %>">c[3]</td>
+        <td class="<%= board[:D][3] %>">d[3]</td>
+        <td class="<%= board[:E][4] %>">e[3]</td>
+        <td class="<%= board[:F][5] %>">f[3]</td>
+        <td class="<%= board[:G][6] %>">g[3]</td>
+      </tr>
+      <tr>
+        <td class="<%= board[:A][0] %>">a[2]</td>
+        <td class="<%= board[:B][1] %>">b[2]</td>
+        <td class="<%= board[:C][2] %>">c[2]</td>
+        <td class="<%= board[:D][3] %>">d[2]</td>
+        <td class="<%= board[:E][4] %>">e[2]</td>
+        <td class="<%= board[:F][5] %>">f[2]</td>
+        <td class="<%= board[:G][6] %>">g[2]</td>
+      </tr>
+      <tr>
+        <td class="<%= board[:A][0] %>">a[1]</td>
+        <td class="<%= board[:B][1] %>">b[1]</td>
+        <td class="<%= board[:C][2] %>">c[1]</td>
+        <td class="<%= board[:D][3] %>">d[1]</td>
+        <td class="<%= board[:E][4] %>">e[1]</td>
+        <td class="<%= board[:F][5] %>">f[1]</td>
+        <td class="<%= board[:G][6] %>">g[1]</td>
+      </tr>
+    </table>
+  </div>
+  <% else %>
+<% end %>  
+<%= link_to 'New Game', new_game_path %> |
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+
+

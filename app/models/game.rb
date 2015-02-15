@@ -13,4 +13,12 @@ class Game < ActiveRecord::Base
   def self.active
     Game.where(:finished => false)
   end
+
+  def can_move?(user)
+    if self.turn_count.even?
+      user == self.users.first
+    else
+      user == self.users.second
+    end
+  end
 end
