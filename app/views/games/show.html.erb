@@ -1,5 +1,7 @@
 <h1>Game <%= @game.id %></h1>
-<h2>Welcome back, <%= @player1.username %>
-    and <%= @player2.username %>!</h2>
+<h2>Welcome back, <%= link_to @player1.username, user_path(@player1) %>!</h2>
+<% if @player2 %>
+    <h2>Welcome back, <%= link_to @player2.username, user_path(@player2) %>!</h2>
+<% end %>
 
 <%= render "board", board: @game.board %>
