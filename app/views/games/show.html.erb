@@ -3,7 +3,7 @@
 
 <h3>Your Game:</h3>
 <br>
-<%= render "board", board: @game.board %>
+<%= render "games/board", show_board: @game %>
 
 
 <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> |
