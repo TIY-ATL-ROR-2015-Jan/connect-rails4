@@ -8,5 +8,8 @@ class GamesController < ApplicationController
   end
 
   def show
+    @game = Game.find(params[:id])
+    @player1 = @game.users.first
+    @player2 = @game.users.second
   end
 end
