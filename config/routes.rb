@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  post 'games', to: 'games#join'
+  get 'games/:id', to: 'games#show'
+  put 'games/:id', to: 'games#move'
+  get 'users/:id', to: 'users#show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
